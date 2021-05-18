@@ -1,7 +1,8 @@
 ---
-title: 'Teaching R: An introduction'
-author: "Kumar Ramanathan"
-date: "5/20/2021"
+title: Teaching R
+subtitle: A brief introduction
+author: Kumar Ramanathan<br>kumar.ramanathan@u.northwestern.edu<br>@kumarhk
+date: May 20, 2021
 output: 
   ioslides_presentation: 
     transition: faster
@@ -15,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Let's do some polling! Go to [pollev.com/kumarr436](pollev.com/kumarr436)
 
-## Learning objectives for today
+## Learning objectives for today 
 
 1.   Construct a lesson plan for an R workshop/session
 2.   Understand the examples-and-exercises approach to teaching R
@@ -97,17 +98,17 @@ I strongly suggest an **examples and exercises** approach to teaching skills in 
 
 # Lesson snippets
 
-## Lesson snippet 1: ggplot, step by step
+# Lesson snippet 1: ggplot, step by step
 
 [grammar of graphics] [introduce very basic plot] [add geoms] [exercise - repeat task with different variables] [add a line with the mean] [grouping: group by colors] [exercise - repeat task with different variables, include a bonus] [summative exercise!]
 
-## Lesson snippet 2: working with dates
+# Lesson snippet 2: working with dates
 
 [read a file with vaccine data, look at the readr output vs. read.csv output]
 [manipulate dates]
 [make a histogram by date vs by month]
 
-## Lesson snippet 3: regression and coefplot
+# Lesson snippet 3: regression and coefplot
 
 # Wrapping up
 
@@ -125,6 +126,6 @@ Online learning schools
 
 -   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html), coursework license available
 
-## You can do it!
+## You can do it! {.build}
 
 <center> ![Is "Full House" still popular? Strange international syndication patterns meant it was the most prominent American TV show available during my childhood.](https://media.giphy.com/media/l41lZxzroU33typuU/giphy.gif) </center>
