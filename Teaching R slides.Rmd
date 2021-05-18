@@ -1,0 +1,130 @@
+---
+title: 'Teaching R: An introduction'
+author: "Kumar Ramanathan"
+date: "5/20/2021"
+output: 
+  ioslides_presentation: 
+    transition: faster
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Warm up
+
+Let's do some polling! Go to [pollev.com/kumarr436](pollev.com/kumarr436)
+
+## Learning objectives for today
+
+1.   Construct a lesson plan for an R workshop/session
+2.   Understand the examples-and-exercises approach to teaching R
+3.   Articulate questions about how to teach R workshops/sessions
+4.   Identify resources to address those questions
+
+## Outline
+
+# Preparing to teach
+
+## Why learn to teach R?
+
+> -   Teaching is the best way to learn 🤓
+> -   Lots of opportunities to teach R at Northwestern 💸
+> -   Build your teaching portfolio 🗂 
+> -   Good training for certain non-academic career paths 👩‍💻
+
+## Questions to ask yourself
+
+> -   What are your **learning objectives** for the course/session/workshop?
+> -   What are the opportunities and constraints you'll have in your **teaching environment**?
+> -   How much **background** do your students have? How much do they need?
+
+## Learning objectives
+
+> -   Much of this will be determined by context: the students may need specific skills (e.g. regression, data viz) for a class, you may be teaching general-purpose skills for data analysis, etc. 
+> -   I believe every R workshop should share these learning objectives: **Articulate questions about the [technique/method taught]** and **Identify resources to address those questions**.
+> -   In simpler language: you want students to walk away knowing how to ask for help when they run into problems.
+
+## Teaching environment
+
+> -   One-off workshop vs. series
+> -   Virtual vs. in-person
+> -   Solo teaching vs. group teaching
+
+# Determining the scope of your lesson
+
+## Background knowledge
+
+[what do your students know?]
+[how to handle students having different levels of background knowledge?]
+[where to get background knowledge? pre-lesson videos, dataquest, learnr tutorials]
+
+## Do you need to cover the basics?
+
+> -   Installing R and RStudio
+> -   Navigating RStudio
+> -   "code", "comments", "objects"
+> -   Syntax
+> -   Data types and structures
+
+# Building your lesson
+
+## Befriend RMarkdown (and RPojects)
+
+## Storing and sharing the materials
+
+## RStudio Cloud
+
+## Pre-workshop assignments?
+
+# Structuring your lesson
+
+## Where to start
+
+## Helping your students feel comfortable
+
+## Core content
+
+I strongly suggest an **examples and exercises** approach to teaching skills in R. We'll practice this in a moment. 
+
+## Building flexibility into your lesson
+
+## Ending with encouragement
+
+# Examples and Exercises
+
+## Learning by doing
+
+# Lesson snippets
+
+## Lesson snippet 1: ggplot, step by step
+
+[grammar of graphics] [introduce very basic plot] [add geoms] [exercise - repeat task with different variables] [add a line with the mean] [grouping: group by colors] [exercise - repeat task with different variables, include a bonus] [summative exercise!]
+
+## Lesson snippet 2: working with dates
+
+[read a file with vaccine data, look at the readr output vs. read.csv output]
+[manipulate dates]
+[make a histogram by date vs by month]
+
+## Lesson snippet 3: regression and coefplot
+
+# Wrapping up
+
+## Takeaways
+
+## Resources
+
+Examples from NU: 
+
+-   [NUIT Research Computing Services workshops](https://github.com/nuitrcs)
+-   [Amanda's tutorials and workshops](https://sites.northwestern.edu/asdurso/r/)
+-   [Masters of Science in Analytics boot camps](https://github.com/msia/bootcamp-2019)
+
+Online learning schools
+
+-   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html), coursework license available
+
+## You can do it!
+
+<center> ![Is "Full House" still popular? Strange international syndication patterns meant it was the most prominent American TV show available during my childhood.](https://media.giphy.com/media/l41lZxzroU33typuU/giphy.gif) </center>
