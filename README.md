@@ -27,4 +27,4 @@ Other online learning resources:
 -   [`learnr` interactive tutorials](https://rstudio.github.io/learnr/), from RStudio
 -   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html) (coursework license available from NUIT)
 
-Next level: ["Teaching Tech Together"](https://teachtogether.tech/) and [Carpentries Instructor Training](https://carpentries.github.io/instructor-training/) (suggests from Christina Maimone).
+Next level: ["Teaching Tech Together"](https://teachtogether.tech/) and [Carpentries Instructor Training](https://carpentries.github.io/instructor-training/) (suggestions from Christina Maimone).
