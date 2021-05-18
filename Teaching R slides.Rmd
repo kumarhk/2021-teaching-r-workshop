@@ -12,18 +12,31 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r packages, include=FALSE}
+if(!require(pacman)) {install.packages("pacman")}
+if(!require(memer)) {devtools::install_github("sctyner/memer")}
+pacman::p_load(tidyverse, lubridate, gapminder, coefplot, memer)
+```
+
 ## Warm up
 
-Let's do some polling! Go to [pollev.com/kumarr436](pollev.com/kumarr436)
+Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 
-## Learning objectives for today 
+## Learning objectives for today
 
-1.   Construct a lesson plan for an R workshop/session
-2.   Understand the examples-and-exercises approach to teaching R
-3.   Articulate questions about how to teach R workshops/sessions
-4.   Identify resources to address those questions
+1.  Construct a lesson plan for an R workshop/session
+2.  Understand the examples-and-exercises approach to teaching R
+3.  Articulate questions about how to teach R workshops/sessions
+4.  Identify resources to address those questions
 
 ## Outline
+
+-   Preparing to teach
+-   Determining the scope of your lesson
+-   Building your lesson (nuts-and-bolts)
+-   Structuring your lesson (what goes after what?)
+-   Examples and Exercises
+-   Practice lesson snippets
 
 # Preparing to teach
 
@@ -31,7 +44,7 @@ Let's do some polling! Go to [pollev.com/kumarr436](pollev.com/kumarr436)
 
 > -   Teaching is the best way to learn 🤓
 > -   Lots of opportunities to teach R at Northwestern 💸
-> -   Build your teaching portfolio 🗂 
+> -   Build your teaching portfolio 🗂
 > -   Good training for certain non-academic career paths 👩‍💻
 
 ## Questions to ask yourself
@@ -42,7 +55,7 @@ Let's do some polling! Go to [pollev.com/kumarr436](pollev.com/kumarr436)
 
 ## Learning objectives
 
-> -   Much of this will be determined by context: the students may need specific skills (e.g. regression, data viz) for a class, you may be teaching general-purpose skills for data analysis, etc. 
+> -   Much of this will be determined by context: the students may need specific skills (e.g. regression, data viz) for a class, you may be teaching general-purpose skills for data analysis, etc.
 > -   I believe every R workshop should share these learning objectives: **Articulate questions about the [technique/method taught]** and **Identify resources to address those questions**.
 > -   In simpler language: you want students to walk away knowing how to ask for help when they run into problems.
 
@@ -56,45 +69,78 @@ Let's do some polling! Go to [pollev.com/kumarr436](pollev.com/kumarr436)
 
 ## Background knowledge
 
-[what do your students know?]
-[how to handle students having different levels of background knowledge?]
-[where to get background knowledge? pre-lesson videos, dataquest, learnr tutorials]
+-   What do the students already know? You may be able to answer this from program structure, or through a survey.
+-   Sometimes students will be coming in with different levels of background knowledge. You can try to address this before the session and/or adjust your teaching accordingly. 
+-   Where can students get background knowledge before the session?
+    -   Pre-session videos
+    -   DataQuest
+    -   `learnr` tutorials
 
-## Do you need to cover the basics?
+## Do you need to cover the basics? What *are* the basics?
 
 > -   Installing R and RStudio
 > -   Navigating RStudio
 > -   "code", "comments", "objects"
-> -   Syntax
-> -   Data types and structures
+> -   Syntax and data types
+> -   Data structures
+> -   Reading and writing files
 
 # Building your lesson
 
-## Befriend RMarkdown (and RPojects)
+## Building your lesson
 
-## Storing and sharing the materials
+[note for Jean: I will show examples of my past workshop materials here]
 
-## RStudio Cloud
-
-## Pre-workshop assignments?
+> -   Befriend `RMarkdown` (and `RProjects`)
+> -   Consider how to store and share materials: Github, Box folder, something else, none of the above
+> -   Other types of tools: RStudio Cloud
+> -   Connect to other course materials, pre-workshop assignments, etc.
 
 # Structuring your lesson
 
 ## Where to start
 
-## Helping your students feel comfortable
+Motivation 
+
+-   Use the end point as motivation: show them what they will learn! 
+-   Pick some real data that the students are likely to be interested in 
+
+Help students feel comfortable
+
+-   Remind them that they are learning a skill, which only comes with practice
+-   Encourage your students to learn from *each other*
 
 ## Core content
 
-I strongly suggest an **examples and exercises** approach to teaching skills in R. We'll practice this in a moment. 
+I usually outline the core content by:
+
+1.  Create the end products and break down each step.
+2.  Look up existing teaching materials on the same/related topic.
+
+I strongly suggest an **examples and exercises** approach to teaching skills in R. We'll practice this in a moment.
 
 ## Building flexibility into your lesson
 
+-   Plan for a little bit more material than you can teach
+-   Provide data files that students can play around with
+-   For complex skills, give yourself wiggle room to skip over exercises based on timing/interest
+
 ## Ending with encouragement
+
+I always like to end with: 
+
+1.  Main takeaways
+2.  Resources
+3.  Reminder that they've just learned to create things! 
 
 # Examples and Exercises
 
 ## Learning by doing
+
+```{r out.width="45%"}
+meme_get("TwoButtonsAnxiety") %>% 
+    meme_text_buttons("Listen to the instructor", "Take notes", size=18)
+```
 
 # Lesson snippets
 
@@ -104,9 +150,7 @@ I strongly suggest an **examples and exercises** approach to teaching skills in 
 
 # Lesson snippet 2: working with dates
 
-[read a file with vaccine data, look at the readr output vs. read.csv output]
-[manipulate dates]
-[make a histogram by date vs by month]
+[read a file with vaccine data, look at the readr output vs. read.csv output] [manipulate dates] [make a histogram by date vs by month]
 
 # Lesson snippet 3: regression and coefplot
 
@@ -114,18 +158,30 @@ I strongly suggest an **examples and exercises** approach to teaching skills in 
 
 ## Takeaways
 
+1.  Lesson planning is really important: Develop learning objectives. Assess what your students already know + what they need. 
+2.  Use the tools that R provides: `RMarkdown`, `RProjects`, and `RStudio` itself.
+3.  Construct your lessons around examples and exercises, so that students practice writing code *during* the session.
+4.  Lean on the broad community of R users and social scientists. You almost never have to start from scratch. 
+
 ## Resources
 
-Examples from NU: 
+Examples from NU:
 
 -   [NUIT Research Computing Services workshops](https://github.com/nuitrcs)
--   [Amanda's tutorials and workshops](https://sites.northwestern.edu/asdurso/r/)
 -   [Masters of Science in Analytics boot camps](https://github.com/msia/bootcamp-2019)
+-   [Amanda d'Urso's tutorials and workshops](https://sites.northwestern.edu/asdurso/r/)
 
-Online learning schools
+Other resources:
 
--   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html), coursework license available
+-   [Library of free learning resources](https://sites.northwestern.edu/researchcomputing/category/learning-resources/), from NUIT RCS
+-   [Compilation of books, guides, tutorials used often by social scientists](https://efarristcu.medium.com/teaching-myself-r-c03c52361bed), from Emily Farris
+-   [`learnr` interactive tutorials](https://rstudio.github.io/learnr/), from RStudio
+-   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html) (coursework license available from NUIT)
 
 ## You can do it! {.build}
 
-<center> ![Is "Full House" still popular? Strange international syndication patterns meant it was the most prominent American TV show available during my childhood.](https://media.giphy.com/media/l41lZxzroU33typuU/giphy.gif) </center>
+<center>
+
+![Is "Full House" still popular? Strange international syndication patterns meant it was the most prominent American TV show available during my childhood.](https://media.giphy.com/media/l41lZxzroU33typuU/giphy.gif)
+
+</center>
