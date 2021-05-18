@@ -40,12 +40,12 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 
 # Preparing to teach
 
-## Why learn to teach R?
+## Why should you learn to teach R?
 
 > -   Teaching is the best way to learn 🤓
-> -   Lots of opportunities to teach R at Northwestern 💸
+> -   Lots of opportunities to teach R workshops/etc at Northwestern 💸
 > -   Build your teaching portfolio 🗂
-> -   Good training for certain non-academic career paths 👩‍💻
+> -   Training for certain non-academic career paths 👩‍💻
 
 ## Questions to ask yourself
 
@@ -140,17 +140,25 @@ meme_get("TwoButtonsAnxiety") %>%
     meme_text_buttons("Listen to the instructor", "Take notes", size=18)
 ```
 
+## Learning by doing
+
+Open the RProject file and look in the working directory: you will see an `exercises` subdirectory and an `answers` subdirectory. 
+
+The following lesson snippets all use `.R` code files for the exercises. You can also ask students to use `.Rmd`, especially if this is part of a course where you will need to collect assignment submissions. 
+
 # Lesson snippets
 
-# Lesson snippet 1: ggplot, step by step
+# Lesson snippet 1: ggplot and the grammar of graphics
 
-[grammar of graphics] [introduce very basic plot] [add geoms] [exercise - repeat task with different variables] [add a line with the mean] [grouping: group by colors] [exercise - repeat task with different variables, include a bonus] [summative exercise!]
+## [under construction -- answers/exercise1_answers.R shows what will be covered]
 
 # Lesson snippet 2: working with dates
 
-[read a file with vaccine data, look at the readr output vs. read.csv output] [manipulate dates] [make a histogram by date vs by month]
+## [under construction -- answers/exercise2_answers.R shows what will be covered]
 
 # Lesson snippet 3: regression and coefplot
+
+## [under construction -- answers/exercise1_answers.R shows what will be covered]
 
 # Wrapping up
 
