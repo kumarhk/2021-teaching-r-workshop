@@ -4,12 +4,18 @@ subtitle: A brief introduction
 author: Kumar Ramanathan<br>kumar.ramanathan@u.northwestern.edu<br>@kumarhk
 date: May 20, 2021
 output: 
-  ioslides_presentation: 
-    transition: faster
+  revealjs::revealjs_presentation:
+    theme: night
+    highlight: zenburn
+    fig_height: 4
+    css: custom_style.css 
+    self_contained: true
+    reveal_options:
+      slideNumber: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r packages, include=FALSE}
@@ -36,7 +42,6 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 -   Building your lesson (nuts-and-bolts)
 -   Structuring your lesson (what goes after what?)
 -   Examples and Exercises
--   Practice lesson snippets
 
 # Preparing to teach
 
@@ -70,8 +75,11 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 ## Background knowledge
 
 -   What do the students already know? You may be able to answer this from program structure, or through a survey.
--   Sometimes students will be coming in with different levels of background knowledge. You can try to address this before the session and/or adjust your teaching accordingly. 
+
+-   Sometimes students will be coming in with different levels of background knowledge. You can try to address this before the session and/or adjust your teaching accordingly.
+
 -   Where can students get background knowledge before the session?
+
     -   Pre-session videos
     -   DataQuest
     -   `learnr` tutorials
@@ -98,10 +106,10 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 
 ## Where to start
 
-Motivation 
+Motivation
 
--   Use the end point as motivation: show them what they will learn! 
--   Pick some real data that the students are likely to be interested in 
+-   Use the end point as motivation: show them what they will learn!
+-   Pick some real data that the students are likely to be interested in
 
 Help students feel comfortable
 
@@ -112,8 +120,8 @@ Help students feel comfortable
 
 I usually outline the core content by:
 
-1.  Create the end products and break down each step.
-2.  Look up existing teaching materials on the same/related topic.
+1.  Drafting the end products and breaking down each step.
+2.  Looking up existing teaching materials on the same/related topic.
 
 I strongly suggest an **examples and exercises** approach to teaching skills in R. We'll practice this in a moment.
 
@@ -125,34 +133,239 @@ I strongly suggest an **examples and exercises** approach to teaching skills in 
 
 ## Ending with encouragement
 
-I always like to end with: 
+I always like to end with:
 
 1.  Main takeaways
 2.  Resources
-3.  Reminder that they've just learned to create things! 
+3.  Reminder that they've just learned to create things!
 
 # Examples and Exercises
 
 ## Learning by doing
 
-```{r out.width="45%"}
+```{r out.width="45%", echo=FALSE}
 meme_get("TwoButtonsAnxiety") %>% 
     meme_text_buttons("Listen to the instructor", "Take notes", size=18)
 ```
 
 ## Learning by doing
 
-Open the RProject file and look in the working directory: you will see an `exercises` subdirectory and an `answers` subdirectory. 
+Open the RProject file and look in the working directory: you will see an `exercises` subdirectory and an `answers` subdirectory.
 
-The following lesson snippets all use `.R` code files for the exercises. You can also ask students to use `.Rmd`, especially if this is part of a course where you will need to collect assignment submissions. 
+The following lesson snippets all use `.R` code files for the exercises. You can also ask students to use `.Rmd`, especially if this is part of a course where you will need to collect assignment submissions.
 
 # Lesson snippets
 
 # Lesson snippet 1: ggplot and the grammar of graphics
 
-## [under construction -- answers/exercise1_answers.R shows what will be covered]
+## Components of a basic plot
 
-# Lesson snippet 2: working with dates
+-   **data**: a data frame, provided to the `ggplot()` function
+-   **geometric objects**: the objects/shapes that you want to plot, indicated through one of the many available `geom` functions, such as `geom_point()` or `geom_hist()`
+-   **aesthetic mapping**: the mapping from the data to the geometric objects, provided in an `aes()` function nested within `ggplot()` or a `geom` function
+-   connected with the `+` operator
+
+```{r ggplot structure, eval=F}
+ggplot(data = <DATA FRAME>) + 
+  <GEOM_FUNCTION>(mapping = aes(<VARIABLES>))
+```
+
+```{r ggplot structure simple, eval=F}
+ggplot(<DATA FRAME>) + 
+  <GEOM_FUNCTION>(aes(<VARIABLES>))
+```
+
+## Prepare data
+
+```{r}
+# Load data
+gapminder <- gapminder::gapminder
+
+# Look at the structure of the data. You can use glimpse(), summary(), or head().
+glimpse(gapminder)
+```
+
+```{r}
+# Create a new data frame with only the data for 2007
+gapminder07 <- filter(gapminder, year==2007)
+```
+
+## A basic scatterplot
+
+```{r}
+ggplot(gapminder) + 
+    geom_point(aes(x=year, y=pop))
+```
+
+## A basic scatterplot
+
+These will produce the same output:
+
+```{r eval=F}
+ggplot(gapminder) + 
+    geom_point(aes(x=year, y=pop))
+```
+
+```{r eval=F}
+ggplot(gapminder, aes(x=year, y=pop)) + 
+    geom_point()
+```
+
+## Add labels to the plot
+
+```{r}
+ggplot(gapminder) + 
+    geom_point(aes(x=year, y=pop)) + 
+    labs(title="Population over time", x="Year", y="Population")
+```
+
+## Your turn!
+
+Plot life expectancy as a function of GDP per capita for the year 2007, and add labels.
+
+> -   Step 1: Supply the data `gapminder07` to `ggplot()`
+> -   Step 2: Choose `geom_point()` + Supply `x=gdpPercap` and `y=lifeExp` to `aes()`
+> -   Step 3: Add `title`, `x`, and `y` in `labs()`
+
+## Your turn!
+
+```{r}
+ggplot(gapminder07) + 
+    geom_point(aes(x=gdpPercap, y=lifeExp)) + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy")
+```
+
+## Choosing geoms
+
+There are may `geom` functions we can choose to generate geometric objects:
+
+![](figures/geoms.png){width="596"}
+
+Let's try to add `geom_smooth()` to the previous plot we created.
+
+## Smoothed conditional means
+
+```{r eval=F}
+ggplot(gapminder07) + 
+    geom_point(aes(x=gdpPercap, y=lifeExp)) + 
+    geom_smooth(aes(x=gdpPercap, y=lifeExp)) + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy", subtitle="Gapminder 2007 data")
+```
+
+```{r eval=F}
+ggplot(gapminder07, aes(x=gdpPercap, y=lifeExp)) + 
+    geom_point() + 
+    geom_smooth() + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy", subtitle="Gapminder 2007 data")
+```
+
+## Smoothed conditional means
+
+```{r}
+ggplot(gapminder07, aes(x=gdpPercap, y=lifeExp)) + 
+    geom_point() + 
+    geom_smooth() + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy", subtitle="Gapminder 2007 data")
+```
+
+## Horizontal line
+
+```{r}
+ggplot(gapminder07) + 
+    geom_point(aes(x=gdpPercap, y=lifeExp)) + 
+    geom_hline(aes(yintercept=mean(lifeExp))) + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy", subtitle="Gapminder 2007 data")
+```
+
+## Your turn!
+
+Plot the **life expectancy** of each **continent** in 2007.
+
+Look at the [ggplot cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf) and decide which kind of geom to use.
+
+## Life expectancy in each continent
+
+```{r}
+ggplot(gapminder07) + 
+    geom_boxplot(aes(x=continent, y=lifeExp)) + 
+    labs(title="Distribution of life expectancy", x="Continent", y="Distribution")
+```
+
+## Life expectancy in each continent
+
+```{r}
+ggplot(gapminder07) + 
+    geom_col(aes(x=continent, y=lifeExp)) + 
+    labs(title="Distribution of life expectancy", x="Continent", y="Distribution")
+```
+
+## Grouping variables
+
+You can think of the `continent` or `year` variables as **grouping variables**: they place each observation in one of several groups.
+
+We can represent the groups through aesthetic mapping or facets rather than along one of the axes.
+
+## Grouping by color
+
+```{r}
+ggplot(gapminder) + 
+    geom_point(aes(x=gdpPercap, y=lifeExp, col=year)) + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy")
+```
+
+## Grouping by facet
+
+```{r, warning=FALSE}
+ggplot(gapminder, aes(x=gdpPercap, y=lifeExp)) + 
+    geom_point() + 
+    geom_smooth() + 
+    facet_wrap(~year) + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy")
+```
+
+## Grouping by facet ... scales="free"
+
+Try adding the argument `scales="free"` to the `facet_wrap()` layer.
+
+## Grouping by facet ... scales="free"
+
+```{r, warning=FALSE}
+ggplot(gapminder, aes(x=gdpPercap, y=lifeExp)) + 
+    geom_point() + 
+    geom_smooth() + 
+    facet_wrap(~year, scales="free") + 
+    labs(title="Do people in richer countries live longer?", x="GDP per capita", y="Life expectancy")
+```
+
+## Your turn!
+
+Visualize **life expectancy** by continent **in 2007** again. This time, group continents by color or facet.
+
+## Grouping by colors
+
+```{r}
+ggplot(gapminder07, aes(x=gdpPercap, y=lifeExp, 
+                        col=continent, size=pop)) + 
+    geom_point() + 
+    labs(title="Life expectancy as a function of GDP per capita, by continent", x="GDP per capita", y="Life expectancy")
+```
+
+## Grouping by facet
+
+```{r}
+ggplot(gapminder07, aes(x=lifeExp)) + 
+    geom_density() + 
+    facet_wrap(~continent, scales="free") + 
+    labs(title="Life expectancy as a function of GDP per capita, by continent", x="GDP per capita", y="Life expectancy")
+```
+
+## Cumulative exercise
+
+Choose your own adventure!
+
+Create a plot that includes **two geoms** and **facets**
+
+## Lesson snippet 2: working with dates
 
 ## [under construction -- answers/exercise2_answers.R shows what will be covered]
 
@@ -164,10 +377,10 @@ The following lesson snippets all use `.R` code files for the exercises. You can
 
 ## Takeaways
 
-1.  Lesson planning is really important: Develop learning objectives. Assess what your students already know + what they need. 
+1.  Lesson planning is really important: Develop learning objectives. Assess what your students already know + what they need.
 2.  Use the tools that R provides: `RMarkdown`, `RProjects`, and `RStudio` itself.
 3.  Construct your lessons around examples and exercises, so that students practice writing code *during* the session.
-4.  Lean on the broad community of R users and social scientists. You almost never have to start from scratch. 
+4.  Lean on the broad community of R users and social scientists. You almost never have to start from scratch.
 
 ## Resources
 
@@ -184,10 +397,10 @@ Other resources:
 -   [`learnr` interactive tutorials](https://rstudio.github.io/learnr/), from RStudio
 -   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html) (coursework license available from NUIT)
 
-Next level: ["Teaching Tech Together"](https://teachtogether.tech/) and [Carpentries Instructor Training](https://carpentries.github.io/instructor-training/) (suggests from Christina Maimone).
+Take it to the next level (suggestions from Christina Maimone):
 
-## You can do it! {.build}
+-   ["Teaching Tech Together"](https://teachtogether.tech/) + [Carpentries Instructor Training](https://carpentries.github.io/instructor-training/)
 
-<center>
+## You can do it!
+
 ![Is "Full House" still popular?](https://media.giphy.com/media/l41lZxzroU33typuU/giphy.gif)
-</center>
