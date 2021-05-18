@@ -26,3 +26,5 @@ Other online learning resources:
 -   [Compilation of books, guides, tutorials used often by social scientists](https://efarristcu.medium.com/teaching-myself-r-c03c52361bed), from Emily Farris
 -   [`learnr` interactive tutorials](https://rstudio.github.io/learnr/), from RStudio
 -   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html) (coursework license available from NUIT)
+
+Next level: ["Teaching Tech Together"](https://teachtogether.tech/) and [Carpentries Instructor Training](https://carpentries.github.io/instructor-training/) (suggests from Christina Maimone).

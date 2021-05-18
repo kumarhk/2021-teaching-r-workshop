@@ -89,8 +89,6 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 
 ## Building your lesson
 
-[note for Jean: I will show examples of my past workshop materials here]
-
 > -   Befriend `RMarkdown` (and `RProjects`)
 > -   Consider how to store and share materials: Github, Box folder, something else, none of the above
 > -   Other types of tools: RStudio Cloud
@@ -174,9 +172,11 @@ Examples from NU:
 Other resources:
 
 -   [Library of free learning resources](https://sites.northwestern.edu/researchcomputing/category/learning-resources/), from NUIT RCS
--   [Compilation of books, guides, tutorials used often by social scientists](https://efarristcu.medium.com/teaching-myself-r-c03c52361bed), from Emily Farris
+-   [Compilation of resources often used by social scientists](https://efarristcu.medium.com/teaching-myself-r-c03c52361bed), from Emily Farris
 -   [`learnr` interactive tutorials](https://rstudio.github.io/learnr/), from RStudio
 -   [Dataquest](https://www.it.northwestern.edu/research/campus-events/data-camp.html) (coursework license available from NUIT)
+
+Next level: ["Teaching Tech Together"](https://teachtogether.tech/) and [Carpentries Instructor Training](https://carpentries.github.io/instructor-training/) (suggests from Christina Maimone).
 
 ## You can do it! {.build}
 
