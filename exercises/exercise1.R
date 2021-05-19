@@ -73,9 +73,3 @@ ggplot(gapminder07, aes(x=gdpPercap, y=lifeExp)) +
 
 # Create a plot that includes two geoms and facets by some variable. 
 
-
-
-
-
-
-

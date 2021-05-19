@@ -61,4 +61,3 @@ summary(mod1)
 
 
 # Bonus: Install and load the weights package and use nalevs() to recode all the independent variables. Note that you can do this directly in the formula within lm(). What does this function do? How does it change the results of coefplot()?
-

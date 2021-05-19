@@ -75,3 +75,4 @@ mod4 <- lm(lifeExp ~ nalevs(gdpPercap) + nalevs(pop) + nalevs(year) + continent,
 # Examine results using coefplot(). When variables are recoded 0 to 1, coefficient plots are easier to read. 
 coefplot(mod4, intercept=FALSE) + 
     labs(title="Coefficients from Model 4", subtitle="All independent variables recoded to a 0-1 range.")
+
