@@ -1,6 +1,7 @@
 .reveal p {
     font-family: Arial;
     font-weight: 300;
+    text-align: left;
 }
 .reveal ul {
     font-family: Arial;

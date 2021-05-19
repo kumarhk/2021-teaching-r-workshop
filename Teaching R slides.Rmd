@@ -109,8 +109,8 @@ Why GitHub?
 For you: 
 
 - Version control!
-- You can push updates from within RStudio as you work
-- Desktop application & RStudio tab to push/pull (or Git bash if you are adventurous)
+- Good for collaboration
+- Good integration with RStudio, easy-to-use desktop application
 - Useful skill for data science & programming outside social science
 - Training via NUIT RCS; training within department coming soon
 
@@ -118,6 +118,7 @@ For students:
 
 - Easy download options
 - They can see how your code evolved
+- Helpful exposure to common tool in data science & programming
 
 # Structuring your lesson
 
