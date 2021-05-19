@@ -76,14 +76,7 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 ## Background knowledge
 
 - What do the students already know? You may be able to answer this from program structure, or through a survey.
-
 - Sometimes students will be coming in with different levels of background knowledge. You can try to address this before the session and/or adjust your teaching accordingly.
-
-- Where can students get background knowledge before the session?
-
-    - Pre-session videos
-    - DataQuest
-    - `learnr` tutorials
 
 ## Do you need to cover the basics? What *are* the basics?
 
@@ -94,6 +87,12 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 > - Data structures
 > - Reading and writing files
 
+## Before the lesson
+
+- Registration, where you can ask students to list skills & how comfortable they feel, their goals, etc.
+- Assigning materials for background knowledge before the session: pre-session videos, DataQuest, `learnr` videos
+- Communicate info with students: versions of R and RStudio needed, what packages are needed, location of shared materials, etc. 
+
 # Building your lesson
 
 ## Building your lesson
@@ -102,6 +101,23 @@ Let's do some polling! Go to [pollev.com/kumarr436](http://pollev.com/kumarr436)
 > - Consider how to store and share materials: Github, Box folder, something else, none of the above
 > - Other types of tools: RStudio Cloud
 > - Connect to other course materials, pre-workshop assignments, etc.
+
+## The GitHub option
+
+Why GitHub?
+
+For you: 
+
+- Version control!
+- You can push updates from within RStudio as you work
+- Desktop application & RStudio tab to push/pull (or Git bash if you are adventurous)
+- Useful skill for data science & programming outside social science
+- Training via NUIT RCS; training within department coming soon
+
+For students: 
+
+- Easy download options
+- They can see how your code evolved
 
 # Structuring your lesson
 
@@ -151,11 +167,17 @@ meme_get("TwoButtonsAnxiety") %>%
 
 ## Learning by doing
 
+> - I usually have three components: **slides**, **lecture notes**, and **exercises**
+> - Students follow along from the exercises file, with the lecture notes as reference
+> - Commenting the exercises file is key: it helps students locate themselves, and makes it easier for them to come back to the materials and learn
+
+## Lesson snippets
+
 Open the RProject file and look in the working directory: you will see an `exercises` subdirectory and an `answers` subdirectory.
 
 The following lesson snippets all use `.R` code files for the exercises. You can also ask students to use `.Rmd`, especially if this is part of a course where you will need to collect assignment submissions.
 
-# Lesson snippets
+As we go through, ask any questions you have about how to design and use examples/exercises.
 
 # Lesson snippet 1: ggplot and the grammar of graphics
 
@@ -593,6 +615,20 @@ Note that the character variable `continent` is treated as fixed effects. The ex
 ```{r}
 coefplot(mod3, intercept=F)
 ```
+
+# Summing up the lesson snippets
+
+## Key points on examples and exercises
+
+> - How do you choose the right examples?
+>    - I like to come up with the end product, and break down the skills you need to get there
+>    - You can also look at examples in existing learning resources
+>    - Keep it engaging: choose relevant data and build on each output 
+>    - Pick something you actually do in real life! It will be more interesting to you and to students
+> - ***Comment your code!***
+> - Making sure your code works
+>    - I write in this sequence: lecture notes, answers, exercises, slides
+>    - Restart your R session and run the code in answers & exercises to make sure each works independently
 
 # Wrapping up
 
