@@ -33,7 +33,7 @@ summary(mod1)
 
 #### Regression model 2 ####
 
-# Let's add a covariate to the model: year
+# Implement a regression, similar to the one above, but with the added covariate "year"
 mod2 <- lm(lifeExp ~ gdpPercap_perthou + year, data=gapminder)
 
 # Use summary() to view regression results
@@ -63,7 +63,7 @@ summary(mod3)
 # Use coefplot() to view regression results
 coefplot(mod3, intercept=FALSE)
 
-# Bonus: Install and load the weights package and use nalevs() to recode all the independent variables. Note that you can do this directly in the formula within lm(). What does this function do? How does it change 
+# Bonus: Install and load the weights package and use nalevs() to recode all the independent variables. Note that you can do this directly in the formula within lm(). What does this function do? How does it change the results of coefplot()? 
 # Load library and look at the help file. nalevs() recodes numeric variables into a 0 to 1 range.
 library(weights)
 ?nalevs

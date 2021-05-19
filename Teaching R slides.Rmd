@@ -483,7 +483,112 @@ Bonus exercise if time permits: Can you calculate the number of days it took for
 
 # Lesson snippet 3: regression and coefplot
 
-## [under construction -- answers/exercise1_answers.R shows what will be covered]
+## Regression models in R
+
+Let's use the `gapminder` data that we are already familiar with to practice implementing some **linear regressions** and examining the results.
+
+## Preparing data
+
+```{r}
+# Import data
+gapminder <- gapminder::gapminder
+
+# Examine data
+glimpse(gapminder)
+
+# Create GDP per capita (per thousand dollars) variable
+gapminder$gdpPercap_perthou <- gapminder$gdpPercap/1000
+```
+
+## Life expectancy and GDP per capita
+
+Are life expectancy and GDP per capita related? A scatterplot suggests ... maybe! We can investigate the relationship in a different way with a regression.
+
+```{r}
+plot(lifeExp ~ gdpPercap_perthou, data=gapminder)
+```
+
+## Implementing a regression
+
+The `lm()` function in base R takes a formula and an argument specifying the data frame:
+
+```{r, eval=F}
+lm(formula = DEP_VAR ~ IV1 + IV2, data = DATAFRAME)
+```
+
+Let's implement a regression with the DV `lifeExp` and one IV, `gdpPercap`. We'll save the results as `mod1`. Look at what the object class is in your environment.
+
+```{r}
+mod1 <- lm(lifeExp ~ gdpPercap_perthou, data=gapminder)
+```
+
+## Examining regression results
+
+We can print out the results using `summary()` on the saved list object.
+
+```{r}
+summary(mod1)
+```
+
+## Your turn! A multivariate model
+
+Implement a regression with the DV `lifeExp` and the IVs `gdpPercap` and `year`. 
+
+Then examine the results using `summary()`.
+
+## A multivariate model
+
+```{r}
+mod2 <- lm(lifeExp ~ gdpPercap_perthou + year, data=gapminder)
+
+summary(mod2)
+```
+
+## Examining regression results
+
+Alternatively, we can visualize the coefficients and uncertainty using `coefplot()`. But the below isn't very easy to read. What can we do to improve it? Check out the help file.
+
+```{r}
+coefplot(mod2)
+```
+
+## Examining regression results
+
+We can remove the intercept using the argument `intercept=FALSE`.
+
+```{r}
+coefplot(mod2, intercept=FALSE)
+```
+
+## Add a title to the plot
+
+```{r, eval=F}
+coefplot(mod2, intercept=FALSE, title="Coefficients from Model 2")
+```
+
+```{r}
+coefplot(mod2, intercept=FALSE) + labs(title="Coefficients from Model 2")
+```
+
+## One more multivariate model
+
+Predict life expectancy as a function of GDP per capita, year, and continent.
+
+## One more multivariate model
+
+```{r}
+mod3 <- lm(lifeExp ~ gdpPercap_perthou + year + continent, data=gapminder)
+
+summary(mod3)
+```
+
+Note that the character variable `continent` is treated as fixed effects. The excluded category is `r as.character(unique(gapminder$continent)[1])`
+
+## One more multivariate model
+
+```{r}
+coefplot(mod3, intercept=F)
+```
 
 # Wrapping up
 
