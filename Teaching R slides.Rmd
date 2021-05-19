@@ -467,6 +467,10 @@ ggplot(vaccines, aes(x=month, y=doses)) + geom_col()
 
 How about if we want to get the *day of the week*? Identify the right function using the `lubridate` cheatsheet. Check the help file to see if there are any useful arguments. 
 
+## Converting dates
+
+We can use `wday()`. Note the `label=TRUE` argument.
+
 ```{r}
 # Create a new variable for day of the week, with label=TRUE
 vaccines$wday <- wday(vaccines$date, label=TRUE)
@@ -479,7 +483,7 @@ ggplot(vaccines, aes(x=wday, y=doses)) + geom_col()
 
 Bonus exercise if time permits: Can you calculate the number of days it took for Chicago to fully vaccinate 1 million people?
 
-<small>Hint: You may need to ue the function `cumsum()`</small>
+<small>Hint: You may need to use the function `cumsum()`</small>
 
 # Lesson snippet 3: regression and coefplot
 
