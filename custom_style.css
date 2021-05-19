@@ -1,14 +1,16 @@
-.reveal section p {
+.reveal p {
     font-family: Arial;
     font-weight: 300;
-    font-size: 0.95em;
-    line-height: 1.2em;
 }
-.reveal section li {
+.reveal ul {
     font-family: Arial;
     font-weight: 300;
-    font-size: 0.95em;
-    line-height: 1.2em;
-    float: left;
-    text-align: left;
+    display: block;
+    margin-bottom: 0.2em;
+}
+.reveal ol {
+    font-family: Arial;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 0.2em;
 }
